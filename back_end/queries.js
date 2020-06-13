@@ -9,9 +9,7 @@ const pool = new Pool({
 
 
 const getEmployee = (request, response) => {
-    console.log('SELECT * FROM employee_schema.employee WHERE fullname="'+request.body.fullname+'"');
-
-    pool.query("SELECT * FROM employee_schema.employee WHERE fullname='"+request.body.fullname+"'", (error, results) => {
+    pool.query("SELECT * FROM employee_schema.employee WHERE id="+request.body.id, (error, results) => {
       if (error) {
         throw error
       }
@@ -19,6 +17,19 @@ const getEmployee = (request, response) => {
     })
 }
 
+const getAllEmployee = (request, response) => {
+
+    pool.query("SELECT * FROM employee_schema.employee", (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+}
+
+
+
 module.exports = {
     getEmployee,
+    getAllEmployee,
 }

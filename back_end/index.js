@@ -16,6 +16,7 @@ app.use(express.json());
 
 app.get('/employee',db.getEmployee)
 
+app.get('/employee-all',db.getAllEmployee)
 /*
 app.post('/employee', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API' })
