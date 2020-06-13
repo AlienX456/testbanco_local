@@ -9,12 +9,11 @@ import { Employee } from 'src/app/interfaces/employee'
 })
 export class ListEmployeesComponent implements OnInit {
 
-  private employeeList :Employee[];
+  public employeeList :Employee[];
 
   constructor(private requestEmployeeListService:RequestEmployeeListService) {
     requestEmployeeListService.getAllEmployees().subscribe(
       data =>{
-        console.log(data);
         this.employeeList = data;
       }
     );

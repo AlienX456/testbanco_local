@@ -1,1 +1,20 @@
-<p>list-employees works!</p>
+<table class="border">
+<thead>
+    <tr>
+      <th class=" border">ID</th>
+      <th class=" border">Name</th>
+      <th class=" border">Function</th>
+      <th class=" border">Boss ID </th>
+    </tr>
+</thead>
+
+<tbody>
+    <tr *ngFor="let employee of employeeList">
+      <td class="border" >{{employee.id}}</td>
+      <td class="border">{{employee.fullname}}</td>
+      <td class="border">{{employee.function}}</td>
+      <td class="border">{{employee.boss}}</td>
+    </tr>
+</tbody>
+
+</table>
