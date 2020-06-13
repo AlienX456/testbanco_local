@@ -24,17 +24,30 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   postInformation(){
+
     let new_employee = {
-      id : this.id.value,
+      id : Number(this.id.value),
       fullname : this.fullname.value,
       employeeFunction : this.function.value,
-      boss : this.boss.value,
+      boss : Number(this.boss.value),
     }
 
-    this.createEmployeeService.writeEmployee(new_employee).subscribe(
-      data => alert('success!!'),
-      error => alert('oops!! '+ error.error.detail)
-    );
+    if (new_employee.boss ==0){
+      new_employee.boss = null;
+    }
+
+    if (new_employee.id <= 0){
+      alert('Value not allowed for employee ID, must be grater than 0');
+    }else if(new_employee.boss < 0){
+      alert('Value not allowed for employee boss, must be grater than 0');
+    }else{
+      this.createEmployeeService.writeEmployee(new_employee).subscribe(
+        data => alert('success!!'),
+        error => alert('oops!! '+ error.error.detail)
+      );
+    }
+
+
   }
 
 }
