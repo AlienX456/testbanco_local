@@ -24,15 +24,16 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   postInformation(){
-    let new_employee : Employee ={
+    let new_employee = {
       id : this.id.value,
       fullname : this.fullname.value,
-      function : this.function.value,
+      employeeFunction : this.function.value,
       boss : this.boss.value,
     }
+
     this.createEmployeeService.writeEmployee(new_employee).subscribe(
-      data => console.log('success', data),
-      error => console.log('oops', error)
+      data => alert('success!!'),
+      error => alert('oops!! '+ error.error.detail)
     );
   }
 

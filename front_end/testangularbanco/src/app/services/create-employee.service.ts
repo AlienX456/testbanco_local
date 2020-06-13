@@ -14,8 +14,7 @@ export class CreateEmployeeService {
   }
 
   writeEmployee(new_employee){
-    let body = JSON.stringify(new_employee);
-    return this.httpClient.post(this.baseURL,body);
+    return this.httpClient.post(this.baseURL,new_employee);
   }
 
 

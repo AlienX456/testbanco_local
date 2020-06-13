@@ -32,11 +32,11 @@ const getAllEmployee = (request, response) => {
 const createEmployee = (request, response) => {
     const { id, fullname, boss, employeeFunction} = request.body
   
-    pool.query("INSERT INTO employee_schema.employee (id,fullname,function,boss) VALUES ($1,$2,$3,$4)", [id, fullname, boss, employeeFunction], (error, results) => {
+    pool.query("INSERT INTO employee_schema.employee (id,fullname,function,boss) VALUES ($1,$2,$3,$4)", [id, fullname, employeeFunction, boss], (error, results) => {
       if (error) {
         response.status(500).send(error)
       }else{
-        response.status(201).send(`Employee added`)
+        response.status(201).send({status:`Employee added`})
       }
     })
   }

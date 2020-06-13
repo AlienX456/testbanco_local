@@ -15,6 +15,9 @@ export class ListEmployeesComponent implements OnInit {
     requestEmployeeListService.getAllEmployees().subscribe(
       data =>{
         this.employeeList = data;
+      },
+      error =>{
+        alert(error.error.detail);
       }
     );
 
