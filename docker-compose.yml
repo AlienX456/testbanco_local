@@ -1,5 +1,10 @@
 version: '3'
 services:
+  apirest:
+    build : ./back_end/
+    network_mode: host
+    depends_on:
+      - postgresql
   postgresql:
    image: "postgres:11.2-alpine"
    volumes:
