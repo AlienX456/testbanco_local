@@ -41,10 +41,26 @@ const createEmployee = (request, response) => {
     })
   }
 
+const sqlReviewCreate = (request, response)  => {
+  const { id, fullname, boss, employeeFunction} = request.body
+  sql = "INSERT INTO employee_schema.employee (id,fullname,function,boss) VALUES ("+id+","+fullname+","+employeeFunction+","+boss+")";
+  console.log(sql);
+  response.status(200).send({status:sql})
+}
+
+const sqlReviewGetEmployee = (request, response)  => {
+  const id = request.body.id;
+  sql = "SELECT * FROM employee_schema.employee WHERE id="+id;
+  console.log(sql);
+  response.status(200).send({status:sql})
+}
+
 
 
 module.exports = {
     getEmployee,
     getAllEmployee,
-    createEmployee
+    createEmployee,
+    sqlReviewCreate,
+    sqlReviewGetEmployee
 }

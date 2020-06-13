@@ -33,6 +33,9 @@ app.delete('/employee', (request, response) => {
 
 */
 
+app.post('/testInsertEmployee',db.sqlReviewCreate);
+app.get('/testEmployee',db.sqlReviewGetEmployee);
+
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
 })

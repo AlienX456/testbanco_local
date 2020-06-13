@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . .
 
+RUN ./node_modules/mocha/bin/mocha --exit
+
 EXPOSE 4000
 
 CMD [ "node", "index.js" ]
