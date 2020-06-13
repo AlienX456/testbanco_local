@@ -1,1 +1,11 @@
-<p>create-employee works!</p>
+<div class="container pt-5">
+        <label for="InputID">Employee ID</label>
+        <input type="number" [formControl]="id" id="InputID" >
+        <label for="InputFullname">Full Name</label>
+        <input type="text"  [formControl]="fullname" id="InputFullname" >
+        <label for="InputFunction">Function</label>
+        <input type="text"  [formControl]="function" id="InputFunction" >
+        <label for="InputBoss">Boss</label>
+        <input type="number" [formControl]="boss" id="InputBoss">
+        <button type="button" (click)="postInformation()" class="btn btn-primary">Submit</button>
+</div>
