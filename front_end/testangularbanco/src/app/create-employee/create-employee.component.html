@@ -1,11 +1,21 @@
-<div class="container pt-5">
-        <label for="InputID">Employee ID</label>
-        <input type="number" [formControl]="id" id="InputID" >
-        <label for="InputFullname">Full Name</label>
-        <input type="text"  [formControl]="fullname" id="InputFullname" >
-        <label for="InputFunction">Function</label>
-        <input type="text"  [formControl]="function" id="InputFunction" >
-        <label for="InputBoss">Boss</label>
-        <input type="number" [formControl]="boss" id="InputBoss">
+<div class="container mt-5 pt-5 px-5 border">
+        <div class="row mb-5 justify-content-md-center">
+        <label clss="col-2" for="InputID">Employee ID</label>
+        <input class="col-5" type="number" [formControl]="id" id="InputID" >
+        </div>
+        <div class="row mb-5 justify-content-md-center">
+        <label class="col-2" for="InputFullname">Full Name</label>
+        <input class="col-5" type="text"  [formControl]="fullname" id="InputFullname" >
+        </div>
+        <div class="row mb-5 justify-content-md-center">
+        <label class="col-2" for="InputFunction">Function</label>
+        <input class="col-5" type="text"  [formControl]="function" id="InputFunction" >
+        </div>  
+        <div class="row mb-5 justify-content-md-center">
+        <label class="col-2" for="InputBoss">Boss</label>
+        <input class="col-5" type="number" [formControl]="boss" id="InputBoss">
+        </div>
+        <div class="row justify-content-md-center mb-5">
         <button type="button" (click)="postInformation()" class="btn btn-primary">Submit</button>
+        </div>
 </div>
