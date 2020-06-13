@@ -11,9 +11,10 @@ const pool = new Pool({
 const getEmployee = (request, response) => {
     pool.query("SELECT * FROM employee_schema.employee WHERE id="+request.body.id, (error, results) => {
       if (error) {
-        throw error
+        response.status(500).send(error)
+      }else{
+        response.status(200).json(results.rows[0])
       }
-      response.status(200).json(results.rows[0])
     })
 }
 
@@ -21,9 +22,10 @@ const getAllEmployee = (request, response) => {
 
     pool.query("SELECT * FROM employee_schema.employee", (error, results) => {
       if (error) {
-        throw error
+        response.status(500).send(error)
+      }else{
+        response.status(200).json(results.rows)
       }
-      response.status(200).json(results.rows)
     })
 }
 
@@ -32,9 +34,10 @@ const createEmployee = (request, response) => {
   
     pool.query("INSERT INTO employee_schema.employee (id,fullname,function,boss) VALUES ($1,$2,$3,$4)", [id, fullname, boss, employeeFunction], (error, results) => {
       if (error) {
-        throw error
+        response.status(500).send(error)
+      }else{
+        response.status(201).send(`Employee added`)
       }
-      response.status(201).send(`Employee added`)
     })
   }
 

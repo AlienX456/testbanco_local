@@ -1,6 +1,7 @@
 //DEPENDENCIES
 const express = require('express')
 const app = express()
+var cors = require('cors')
 
 //QUERIES
 const db = require('./queries')
@@ -10,6 +11,7 @@ const db = require('./queries')
 const port = 4000
 
 
+app.use(cors());
 app.use(express.json());
 
 //API OPERATIONS
