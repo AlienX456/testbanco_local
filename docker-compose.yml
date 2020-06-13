@@ -1,5 +1,8 @@
 version: '3'
 services:
+  frontend:
+    build: ./front_end/testangularbanco
+    network_mode: host
   apirest:
     build : ./back_end/
     network_mode: host
