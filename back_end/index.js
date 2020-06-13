@@ -10,17 +10,17 @@ app.use(
   })
 )
 
-app.get('/', (request, response) => {
+app.get('/employee', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API' })
 })
 
 
-app.post('/', (request, response) => {
+app.post('/employee', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API' })
 })
 
 
-app.delete('/', (request, response) => {
+app.delete('/employee', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API' })
 })
 
