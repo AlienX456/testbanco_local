@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ListEmployeesComponent } from './list-employees/list-employees.component';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
