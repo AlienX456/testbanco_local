@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { CreateEmployeeService } from 'src/app/services/create-employee.service'
+import { Employee } from 'src/app/interfaces/employee'
 
 @Component({
   selector: 'app-create-employee',
@@ -14,7 +16,7 @@ export class CreateEmployeeComponent implements OnInit {
   boss = new FormControl('');
 
 
-  constructor() {
+  constructor(private createEmployeeService:CreateEmployeeService) {
     
    }
 
@@ -22,7 +24,16 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   postInformation(){
-    console.log(this.id.value)
+    let new_employee : Employee ={
+      id : this.id.value,
+      fullname : this.fullname.value,
+      function : this.function.value,
+      boss : this.boss.value,
+    }
+    this.createEmployeeService.writeEmployee(new_employee).subscribe(
+      data => console.log('success', data),
+      error => console.log('oops', error)
+    );
   }
 
 }
